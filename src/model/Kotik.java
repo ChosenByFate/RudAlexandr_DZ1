@@ -1,27 +1,23 @@
 package model;
 
-//https://stackoverflow.com/questions/1927107/define-in-java
-//https://stackoverflow.com/questions/1195206/is-there-a-java-equivalent-or-methodology-for-the-typedef-keyword-in-c
-//jTrash.
-
 public class Kotik {
 
     private static char catsCount = 0;
-    private byte hunger = 0b0110_0100; // 0b1111_1111. jTrash.
-    private byte prettiness;
+    private int hunger = 0b0110_0100; // 0b1111_1111. jTrash.
+    private int prettiness;
     private String name;
-    private byte weight;
+    private int weight;
     private String meow;
 
     public static char getCatsCount() {
         return catsCount;
     }
 
-    public byte getHunger() {
+    public int getHunger() {
         return hunger;
     }
 
-    public byte getPrettiness() {
+    public int getPrettiness() {
         return prettiness;
     }
 
@@ -29,7 +25,7 @@ public class Kotik {
         return name;
     }
 
-    public byte getWeight() {
+    public int getWeight() {
         return weight;
     }
 
@@ -42,7 +38,7 @@ public class Kotik {
         System.out.println("Meow!");
     }
 
-    public Kotik(byte prettiness, String name, byte weight, String meow) {
+    public Kotik(int prettiness, String name, int weight, String meow) {
         ++catsCount;
         this.prettiness = prettiness;
         this.name = name;
@@ -51,24 +47,19 @@ public class Kotik {
         System.out.println(meow);
     }
 
-//    https://ru.stackoverflow.com/questions/249241/%D0%94%D0%B5%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-%D0%B2-java
-//    public ~Kotik() {  //jTrash.
-//        --catsCount
-//    }
-
     protected void finalize() {
         --catsCount;
         System.out.println("One of them died.");
     }
 
     public void setKotik(int prettiness, String name, int weight, String meow) {
-        this.prettiness = (byte)prettiness;
+        this.prettiness = (int)prettiness;
         this.name = name;
-        this.weight = (byte)weight;
+        this.weight = (int)weight;
         this.meow = meow;
     }
 
-    static private boolean checkSatiety(byte hunger, String name) {
+    static private boolean checkSatiety(int hunger, String name) {
         if (hunger <= 0b1010) {
             System.out.println("The cat " + name + " is hungry. :\\");
             return false;
@@ -78,15 +69,15 @@ public class Kotik {
 
     public void eat() {
 //        System.out.println("The cat " + name + " is eating.");
-        eat((byte)(Math.random()*10+25), "Mixed feed");
+        eat((int)(Math.random()*10+25), "Mixed feed");
     }
 
-    public void eat(byte satiety) {
+    public void eat(int satiety) {
         System.out.println("The cat " + name + " is eating.");
         hunger += satiety;
     }
 
-    public void eat(byte satiety, String foodName) {
+    public void eat(int satiety, String foodName) {
         System.out.println("The cat " + name + " is eating " + foodName + ".");
         hunger += satiety;
     }
@@ -97,7 +88,7 @@ public class Kotik {
             return false;
         }
         System.out.println("The cat " + name + " is playing.");
-        hunger -= (byte)(Math.random()*4+5);
+        hunger -= (int)(Math.random()*4+5);
         return true;
     }
     public boolean sleep() {
@@ -106,7 +97,7 @@ public class Kotik {
             return false;
         }
         System.out.println("The cat " + name + " is sleeping.");
-        hunger -= (byte)(Math.random()*4+5);
+        hunger -= (int)(Math.random()*4+5);
         return true;
     }
     public boolean chaseMouse() {
@@ -115,10 +106,10 @@ public class Kotik {
             return false;
         }
         System.out.println("The cat " + name + " is chasing the mouse.");
-        hunger -= (byte)(Math.random()*4+5);
+        hunger -= (int)(Math.random()*4+5);
         if (Math.random() > 0.90) {
             System.out.println("Success!");
-            hunger += (byte)0b0001_1000;
+            hunger += (int)0b0001_1000;
         }else {
             System.out.println("Couldn't catch the mouse!");
         }
@@ -131,26 +122,26 @@ public class Kotik {
             return false;
         }
         System.out.println("The cat " + name + " is doing something incomprehensible!");
-        hunger -= (byte)(Math.random()*4+5);
+        hunger -= (int)(Math.random()*4+5);
         return true;
     }
 
     public void liveAnotherDay() {
-        byte randValue;
+        int randValue;
         boolean wellFed = true;
         for (int i = 0; i < 24; i++) {
-            randValue = (byte)(Math.random()*3);
+            randValue = (int)(Math.random()*3);
             switch (randValue) {
-                case (byte)0:
+                case (int)0:
                     wellFed = play();
                     break;
-                case (byte)1:
+                case (int)1:
                     wellFed = sleep();
                     break;
-                case (byte)2:
+                case (int)2:
                     wellFed = chaseMouse();
                     break;
-                case (byte)3:
+                case (int)3:
                     wellFed = doSomethingIncomprehensible();
                     break;
             }
