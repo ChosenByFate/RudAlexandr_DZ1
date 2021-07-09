@@ -1,13 +1,9 @@
 package model;
 
-//https://stackoverflow.com/questions/1927107/define-in-java
-//https://stackoverflow.com/questions/1195206/is-there-a-java-equivalent-or-methodology-for-the-typedef-keyword-in-c
-//jTrash.
-
 public class Kotik {
 
     private static char catsCount = 0;
-    private byte hunger = 0b0110_0100; // 0b1111_1111. jTrash.
+    private byte hunger = 0b0110_0100;
     private byte prettiness;
     private String name;
     private byte weight;
@@ -51,11 +47,6 @@ public class Kotik {
         System.out.println(meow);
     }
 
-//    https://ru.stackoverflow.com/questions/249241/%D0%94%D0%B5%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-%D0%B2-java
-//    public ~Kotik() {  //jTrash.
-//        --catsCount
-//    }
-
     protected void finalize() {
         --catsCount;
         System.out.println("One of them died.");
@@ -93,7 +84,7 @@ public class Kotik {
 
     public boolean play() {
         if (!checkSatiety(hunger, name)) {
-            --hunger;   //jTrash
+            --hunger;
             return false;
         }
         System.out.println("The cat " + name + " is playing.");
@@ -102,7 +93,7 @@ public class Kotik {
     }
     public boolean sleep() {
         if (!checkSatiety(hunger, name)) {
-            --hunger;   //jTrash
+            --hunger;
             return false;
         }
         System.out.println("The cat " + name + " is sleeping.");
@@ -111,7 +102,7 @@ public class Kotik {
     }
     public boolean chaseMouse() {
         if (!checkSatiety(hunger, name)) {
-            --hunger;   //jTrash
+            --hunger;
             return false;
         }
         System.out.println("The cat " + name + " is chasing the mouse.");
@@ -127,7 +118,7 @@ public class Kotik {
 
     public boolean doSomethingIncomprehensible() {
         if (!checkSatiety(hunger, name)) {
-            --hunger;   //jTrash
+            --hunger;
             return false;
         }
         System.out.println("The cat " + name + " is doing something incomprehensible!");
