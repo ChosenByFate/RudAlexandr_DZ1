@@ -3,7 +3,6 @@ import model.Kotik;
 class Application {
 
     private static Object[] parameters() {
-//        byte prettiness, String name, byte weight, String meow
         Object[] parameters = new Object[4];
         parameters[0] = (int)(Math.random()*100);
         String[] names = {"Oscar", "Max", "Bella", "Tiger", "Molly", "Sam", "Max", "Misty",
@@ -15,7 +14,6 @@ class Application {
             parameters[3] += " meow";
         }
         parameters[3] += "!!!";
-//        parameters[3] = "Meow" + " meow".repeat((int)(Math.random()*7)) + "!!!";
         return parameters;
     }
 

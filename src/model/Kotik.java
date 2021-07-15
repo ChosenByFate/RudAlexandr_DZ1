@@ -3,7 +3,7 @@ package model;
 public class Kotik {
 
     private static char catsCount = 0;
-    private int hunger = 0b0110_0100; // 0b1111_1111. jTrash.
+    private int hunger = 100;
     private int prettiness;
     private String name;
     private int weight;
@@ -68,7 +68,6 @@ public class Kotik {
     }
 
     public void eat() {
-//        System.out.println("The cat " + name + " is eating.");
         eat((int)(Math.random()*10+25), "Mixed feed");
     }
 
@@ -84,7 +83,7 @@ public class Kotik {
 
     public boolean play() {
         if (!checkSatiety(hunger, name)) {
-            --hunger;   //jTrash
+            --hunger;
             return false;
         }
         System.out.println("The cat " + name + " is playing.");
@@ -93,7 +92,7 @@ public class Kotik {
     }
     public boolean sleep() {
         if (!checkSatiety(hunger, name)) {
-            --hunger;   //jTrash
+            --hunger;
             return false;
         }
         System.out.println("The cat " + name + " is sleeping.");
@@ -102,7 +101,7 @@ public class Kotik {
     }
     public boolean chaseMouse() {
         if (!checkSatiety(hunger, name)) {
-            --hunger;   //jTrash
+            --hunger;
             return false;
         }
         System.out.println("The cat " + name + " is chasing the mouse.");
@@ -118,7 +117,7 @@ public class Kotik {
 
     public boolean doSomethingIncomprehensible() {
         if (!checkSatiety(hunger, name)) {
-            --hunger;   //jTrash
+            --hunger;
             return false;
         }
         System.out.println("The cat " + name + " is doing something incomprehensible!");
